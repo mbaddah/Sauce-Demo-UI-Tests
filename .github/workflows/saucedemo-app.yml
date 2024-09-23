@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,21 +18,13 @@ jobs:
       run: |
         docker build -t pytest-playwright .
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
     - name: Run tests in Docker container
       run: |
         docker run --rm -v ${{ github.workspace }}/reports:/app/reports pytest-playwright
 
   report:
     runs-on: ubuntu-latest
-    needs: test
+    needs: build-and-test
 
     steps:
     - name: Checkout repository
