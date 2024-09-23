@@ -16,7 +16,5 @@ With Docker:
 
 ## To-do
 
-- Add linter
-- Add dockerfile
-- Add missing steps + features (expand test scope)
+- Expand test scope
 - Add details of framework
