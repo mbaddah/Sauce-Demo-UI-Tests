@@ -31,4 +31,13 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest
+        pytest --html=reports/report.html
+    
+    - name: Upload test report
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-report
+        path: reports/
+
+        
