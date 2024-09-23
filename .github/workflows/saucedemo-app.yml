@@ -31,8 +31,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Upload test report
-      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: test-report
-        path: reports/
+        path: ${{ github.workspace }}/reports/
