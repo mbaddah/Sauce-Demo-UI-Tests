@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -29,15 +28,45 @@ jobs:
       run: |
         python -m playwright install
 
-    - name: Run tests
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
       run: |
-        pytest --html=reports/report.html
-    
+        python -m pip install --upgrade pip
+        pip install pytest pytest-bdd pytest-playwright pytest-html
+
+    - name: Install Playwright browsers
+      run: |
+        python -m playwright install
+
+    - name: Run tests
+      env:
+        HEADLESS: 'true'  # Set to 'false' if you want to run in non-headless mode
+      run: |
+        pytest --cucumberjson=reports/cucumber.json --html=reports/report.html
+
+  report:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Upload test report
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v2
       with:
         name: test-report
         path: reports/
-
-        
