@@ -7,23 +7,21 @@ Capture high level testing requiremetns for e-commerce application `https://www.
 
 ## Scope
 
-Capture testing requirements for https://www.saucedemo.com (?)
-
-- Front end only
+Capture testing requirements for https://www.saucedemo.com .
 
 Browsers
-- Chrome (explain in decisions why)
+- Chrome will be default browser (explained in decisions document)
 
-Out of scope backend
-
+Following test phases are out of scope:
+- Unit testing
+- API testing
+- Performance testing
+- Security/Penetration testing
 
 ## Test levels/types
 
-Static analysis checks:
-- Run with linter
-- Sonarqube ?
-
-End to end testing
+- Static analysis checks using `pylint`
+- End to end testing using Playwright and pytest-bdd.
 
 ## Test tools and environments
 
@@ -31,23 +29,27 @@ End to end testing
 - Playwright
 - pytest-bdd
 - Docker
-- CICD using Github
+- CICD using Github Actions
 
 ## Risk management
 
-
+- N/A
 
 ## Test metrics & reporting
 
-- Metrics and reports to b captured via Github actions pipeline and Playwright report.
+- Metrics and reports to be captured via Github actions pipeline and Playwright html report.
 
 ## Test Data Management
 
-- 
+- Test data management details go here. Information that needs documenting includes:
+    - Test data location and where data is sourced from
+    - How clean up data if required
+    - How to update data
+    - PII considerations
+    
+## Entry and Exit criteria
 
-## Entry / Exit criteria
-
-- 
+- 'Definition of Ready' and 'Definition of Done' have been scoped out by the team (generally as part of sprint planning and backlog grooming)
 
 ## Defect management
 

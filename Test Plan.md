@@ -2,39 +2,47 @@
 
 ## Introduction
 
-Detailed test plan for https://www.saucedemo.com, exercise 01.
+Detailed test plan for https://www.saucedemo.com exercise 01.
 
 ## Testing scope
 
-- End-to-end testing via Playwright.
-- Load test using Locust?
+- End-to-end testing of the Sauce Demo website using Playwright and pytest-bdd.
 
 ## Test Environment setup
 
-- https://www.saucedemo.com/
+- Environment is externally hosted via https://www.saucedemo.com/ .
 
 ## Test Schedule
 
-- 23/09 - 27/09
+- Testing to run between 23/09/2024 and 27/09/2024
 
 ## Test Deliverables
 
-- 
+- Artifacts include the framework, test cases and reports as part of this exercise and release.
 
-## Test Cases
+## Test Cases and Test Data:
 
 See feature files inside `features` directory.
-
-## Test Data
 
 
 ## Entry and Exit Criteria
 
+- Definition of ready and Definition of done have been scoped out by the team.
+- 
+
 ## Risk and contingency plan
+
+- Scheduled triage meetings to discuss and prioritise open defects.
 
 ## Test Reporting and Communication
 
+- Metrics and reports to be captured via Github actions pipeline and Playwright report.
+
+
 ## Test Automation
+
+
+## References:
 
 - Playwright
 - Docker
