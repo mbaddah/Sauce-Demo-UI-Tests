@@ -14,19 +14,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-
-    - name: Install dependencies
+    - name: Build Docker Image
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest pytest-bdd pytest-playwright pytest-html
-
-    - name: Install Playwright browsers
-      run: |
-        python -m playwright install
+        docker build -t pytest-playwright .
 
   test:
     runs-on: ubuntu-latest
@@ -36,25 +26,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-
-    - name: Install dependencies
+    - name: Run tests in Docker container
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest pytest-bdd pytest-playwright pytest-html
-
-    - name: Install Playwright browsers
-      run: |
-        python -m playwright install
-
-    - name: Run tests
-      env:
-        HEADLESS: 'true'  # Set to 'false' if you want to run in non-headless mode
-      run: |
-        pytest --cucumberjson=reports/cucumber.json --html=reports/report.html
+        docker run --rm -v ${{ github.workspace }}/reports:/app/reports pytest-playwright
 
   report:
     runs-on: ubuntu-latest
@@ -66,7 +40,7 @@ jobs:
 
     - name: Upload test report
       if: always()
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: test-report
         path: reports/
