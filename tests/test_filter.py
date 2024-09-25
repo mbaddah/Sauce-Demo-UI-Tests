@@ -7,17 +7,14 @@ scenarios('../features/filter.feature')
 @pytest.fixture
 def browser_context():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context()
         yield context
-        # context.close()
-        # browser.close()
 
 @pytest.fixture
 def page(browser_context):
     page = browser_context.new_page()
     yield page
-    # page.close()
 
 @given('I am logged in as a standard user')
 def login(page):
