@@ -18,3 +18,5 @@ With Docker:
 
 - Expand test scope
 - Add details of framework
+- Add hooks
+- Add POM
