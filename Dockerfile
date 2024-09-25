@@ -9,4 +9,4 @@ RUN apt-get update && \
     python -m playwright install && \
     python -m playwright install-deps
 
-CMD ["pytest", "--html=reports/report.html"]
+CMD ["pytest", "--html=reports/report.html","--junitxml=reports/results.xml"]

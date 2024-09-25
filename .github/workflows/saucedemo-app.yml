@@ -45,7 +45,15 @@ jobs:
         name: test-report
         path: reports/
 
-    - name: Upload HTML report to GitHub Pages
+    - name: Upload HTML and Junit reports to GitHub Pages
       uses: actions/upload-pages-artifact@v1
       with:
         path: reports/
+
+    - name: Publish JUnit test results
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: JUnit Tests
+        path: reports/*.xml
+        reporter: java-junit
