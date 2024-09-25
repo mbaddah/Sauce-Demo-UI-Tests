@@ -8,7 +8,6 @@ Feature: SauceDemo Application Functionality
     Given I am on the SauceDemo login page
 
   # Log In/Log Out Scenarios
-  # Log In/Log Out Scenarios
     Scenario Outline: Successful login
       When I enter the username "<username>"
       When I enter the password "secret_sauce"
