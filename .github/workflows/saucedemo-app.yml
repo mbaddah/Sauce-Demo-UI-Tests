@@ -64,3 +64,6 @@ jobs:
         path: reports/results.xml
         reporter: java-junit
 
+    - uses: deblockt/cucumber-report-annotations-action@v1.7
+      with:
+        path: reports/cucumber-report.json
