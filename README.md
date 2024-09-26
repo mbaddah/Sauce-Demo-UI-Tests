@@ -30,5 +30,5 @@ Before raising a PR, you must run `pylint` and correct for any issues detected.
 
 - Expand test scope coverage
 - Screenshot on failure
-- Refactor POM
 - Integrate with Sonarqube
+- Refactor code so that credentials are read from environment variables (not hardcoded)
