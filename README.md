@@ -1,4 +1,4 @@
-# Dronesheild-qatest
+# Sauce Demo UI Tests
 
 
 ## Setup and run
