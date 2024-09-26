@@ -1,2 +1,0 @@
-- Raise defect for authentication issue with 'locked_out_user'
-- 
