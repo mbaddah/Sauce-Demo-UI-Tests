@@ -22,3 +22,8 @@ With Docker:
 - Add details of framework
 - Add hooks
 - Add POM
+- Screenshot on failure
+
+## Things i would have liked to have done but didn't get time to do:
+
+- 
