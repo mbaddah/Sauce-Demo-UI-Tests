@@ -7,7 +7,7 @@ Feature: SauceDemo Application Functionality
   Background:
     Given I am on the SauceDemo login page
 
-  # Log In/Log Out Scenarios
+    @login @successful
     Scenario Outline: Successful login
       When I enter the username "<username>"
       When I enter the password "secret_sauce"
@@ -22,3 +22,11 @@ Feature: SauceDemo Application Functionality
       | performance_glitch_user |
       | error_user              |
       | visual_user             |
+    
+    @login @unsuccessful
+    Scenario: Unsuccessful login
+      When I enter the username "locked_out_user"
+      And I enter the password "secret_s"
+      And I click the login button
+      Then I should see the error message "Epic sadface: Username and password do not match any user in this service"
+

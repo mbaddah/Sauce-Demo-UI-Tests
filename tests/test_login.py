@@ -38,3 +38,8 @@ def step_impl(page):
 @then('I should see the products page')
 def step_impl(page):
     assert "Products" in page.content()
+
+@then(parsers.parse('I should see the error message "{message}"'))
+def step_then(page, message):
+    error_message = page.query_selector('.error-message-container.error')
+    assert message in error_message.inner_text(), f"Expected error message '{message}' not found in '{error_message.inner_text()}'"
