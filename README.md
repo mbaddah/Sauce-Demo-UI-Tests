@@ -16,14 +16,19 @@ With Docker:
 - `docker run --rm -v %cd%/reports:/app/reports pytest-playwright` (Windows)
 - `docker run --rm -v $(pwd)/reports:/app/reports pytest-playwright` (Max / Linux)
 
-## To-do
+You can execuete using tag annotations, e.g. `pytest -m "login and successful"` 
 
-- Expand test scope
-- Add details of framework
-- Add hooks
-- Add POM
-- Screenshot on failure
+Headed/Headless:
+
+- By default playwright will run in headless mode (required for CICD). To run headed, run with `--headed` option.
+
+## Linting with `pylint`
+
+Before raising a PR, you must run `pylint` and correct for any issues detected.
 
 ## Things i would have liked to have done but didn't get time to do:
 
-- 
+- Expand test scope coverage
+- Screenshot on failure
+- Refactor POM
+- Integrate with Sonarqube
